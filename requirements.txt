@@ -4,5 +4,3 @@ numpy
 datetime
 pathlib
 openai
-urllib.request
-io
