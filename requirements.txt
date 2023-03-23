@@ -4,3 +4,4 @@ numpy
 datetime
 pathlib
 openai
+urllib3
