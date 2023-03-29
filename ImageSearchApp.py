@@ -10,7 +10,7 @@ from urllib.request import urlopen
 from io import BytesIO
 
 
-openai.api_key = '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'
+openai.api_key = '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'
 
 
 
