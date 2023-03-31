@@ -11,7 +11,7 @@ from io import BytesIO
 import pinecone
 
 
-openai.api_key = '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'
+openai.api_key = st.secrets['openai_api']
 
 
 
@@ -67,7 +67,7 @@ def intialize_pinecone():
     INDEX_DIMENSION = 4096
     BATCH_SIZE=200
     
-    pinecone.init(api_key="5c1bd226-cec5-4eff-bb45-657933b3b8a9", environment="us-west4-gcp")
+    pinecone.init(api_key=st.secrets['pinecone_api'], environment=st.secrets['pinecone_env'])
     # if the index does not already exist, we create it
     if INDEX_NAME not in pinecone.list_indexes():
         pinecone.create_index(name=INDEX_NAME, dimension=INDEX_DIMENSION)
