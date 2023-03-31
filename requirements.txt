@@ -6,4 +6,3 @@ pathlib
 openai
 urllib3
 pinecone-client
-
