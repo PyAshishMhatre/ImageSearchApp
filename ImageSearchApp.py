@@ -19,7 +19,7 @@ def GenSimilar(img, features, img_paths):  #Run search
     query = fe.extract(img)
     print('*********** Query **********', query.shape)
     print('*********** Features *********', features.shape)
-    dists = np.linalg.norm(features-query, axis=1)  # L2 distances to features
+    dists = np.linalg.norm(features - query, axis=1)  # L2 distances to features
     ids = np.argsort(dists)[:10]  # Top 10 results
     scores = [(dists[id], img_paths[id]) for id in ids]
     
@@ -133,7 +133,7 @@ def load_Feature_Img():
     
     features = []
     img_paths = []
-    
+    print('******  path  ****** ',os.walk(root_dir))
     #loop through the files 
     for subdir, dirs, files in os.walk(root_dir):
         for file in files:
@@ -174,6 +174,8 @@ if option == 'Upload an Image':
         img = Image.open(file)  # PIL image
         uploaded_img_path = r".\static\uploaded\\" + datetime.now().isoformat().replace(":", ".") + "_" + file.name
         img.save(uploaded_img_path)
+        features, img_paths = load_Feature_Img()
+        features = np.array(features)
         GenSimilar(img, features, img_paths)
         
 elif option == 'Generate AI Image':
