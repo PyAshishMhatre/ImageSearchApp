@@ -155,7 +155,6 @@ fe = FeatureExtractor()
 features, img_paths = load_Feature_Img()
 features = np.array(features)
 
-
 #Load the image from the path
 image_path = "./banner.png"
 banner = Image.open(image_path)
@@ -174,12 +173,10 @@ if option == 'Upload an Image':
         img = Image.open(file)  # PIL image
         uploaded_img_path = r"./static/uploaded/" + datetime.now().isoformat().replace(":", ".") + "_" + file.name
         img.save(uploaded_img_path)
-        features, img_paths = load_Feature_Img()
-        features = np.array(features)
         GenSimilar(img, features, img_paths)
         
 elif option == 'Generate AI Image':
-    ask = st.text_input(label='Enter the description of clothing you want to see')
+    ask = st.text_input(label='Enter the description of clothing you want to customise (Eg:- Black batman logo top) ')
     run = st.button(label='Build', key='button1')  
     if run and ask != "":
         genimage(ask)  
