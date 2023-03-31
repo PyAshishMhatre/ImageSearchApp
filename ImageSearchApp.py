@@ -79,7 +79,7 @@ def intialize_pinecone():
     return index
 
 def load_imgpath():
-    root_dir = '.\static\img'
+    root_dir = r'./static/img'
     # define dict
     files_path = {}
     
@@ -129,7 +129,7 @@ def output(response, files_path):
                 i = 0   
                 
 def load_Feature_Img():
-    root_dir = '.\static\img'
+    root_dir = r'./static/img'
     
     features = []
     img_paths = []
@@ -172,7 +172,7 @@ if option == 'Upload an Image':
     if file:
         st.image(file, caption='Uploaded image')
         img = Image.open(file)  # PIL image
-        uploaded_img_path = r".\static\uploaded\\" + datetime.now().isoformat().replace(":", ".") + "_" + file.name
+        uploaded_img_path = r"./static/uploaded/" + datetime.now().isoformat().replace(":", ".") + "_" + file.name
         img.save(uploaded_img_path)
         features, img_paths = load_Feature_Img()
         features = np.array(features)
@@ -193,7 +193,7 @@ elif option == 'Search using pinecone':
     if file2 and (num != 0) and run:
         st.image(file2, caption='Uploaded image')
         img = Image.open(file2)  # PIL image
-        uploaded_img_path = r".\static\uploaded\\" + datetime.now().isoformat().replace(":", ".") + "_" + file2.name
+        uploaded_img_path = r"./static/uploaded/" + datetime.now().isoformat().replace(":", ".") + "_" + file2.name
         img.save(uploaded_img_path)
         
         response = input_query(img,num,index) 
