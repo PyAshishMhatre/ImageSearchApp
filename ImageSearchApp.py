@@ -62,7 +62,8 @@ def genimage(ask):
     except openai.error.OpenAIError as e:
         print(e.http_status)
         print(e.error)
-        
+
+@st.cache_resource
 def intialize_pinecone():
     DATA_DIRECTORY = 'assignment4'
     INDEX_NAME = 'fashion'
@@ -78,6 +79,7 @@ def intialize_pinecone():
     
     return index
 
+@st.cache_data
 def load_imgpath():
     root_dir = r'./static/img'
     # define dict
@@ -127,7 +129,8 @@ def output(response, files_path):
                 image = Image.open(  files_path['{path}'.format(path = responses['id'])]  ) 
                 st.image(image, caption='Score is {d_score}'.format(d_score = responses['score']))
                 i = 0   
-                
+
+@st.cache_data   
 def load_Feature_Img():
     root_dir = r'./static/img'
     
@@ -151,7 +154,12 @@ def load_Feature_Img():
     return features, img_paths
         
 # Read image features
-fe = FeatureExtractor()
+@st.cache_resource
+def load_model():
+    fe = FeatureExtractor()
+    return fe
+
+fe = load_model()
 features, img_paths = load_Feature_Img()
 features = np.array(features)
 
