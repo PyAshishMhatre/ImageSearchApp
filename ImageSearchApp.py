@@ -17,6 +17,8 @@ openai.api_key = st.secrets['openai_api']
 
 def GenSimilar(img, features, img_paths):  #Run search
     query = fe.extract(img)
+    print('*********** Query **********', query.shape)
+    print('*********** Features *********', features.shape)
     dists = np.linalg.norm(features-query, axis=1)  # L2 distances to features
     ids = np.argsort(dists)[:10]  # Top 10 results
     scores = [(dists[id], img_paths[id]) for id in ids]
