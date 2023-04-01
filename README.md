@@ -33,6 +33,10 @@ After installing the dependencies, you can generate vectors from the existing im
 ```
 streamlit run imagesearchapp.py
 ```
+## Architecture 
+
+![image](https://user-images.githubusercontent.com/81140802/229304113-20ebf6d1-67f8-4fa2-805a-b3942a092fd6.png)
+
 ## Streamlit App
 
 [ImageSearch](https://pyashishmhatre-imagesearchapp-imagesearchapp-01u1wm.streamlit.app/)
