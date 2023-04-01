@@ -7,7 +7,7 @@ The interface additionally allows a user who does not have an image to make a cu
 
 **The model used for generation of vectors in this code is VGG16**, and the metric for similarity matching is Euclidean, and in Pinecone database, it is cosine similarity. The model for vector generation can be easily replaced with any other image recognition model, such as SqueezeNet, by altering the _feature_extractor.py_ file. The _offline.py_ file is used to generate vectors from existing image inventory and store it locally or on the Github repo. The _image-upsert_pinecode notebook_ is used to set up the Pinecone database and upload vectors to Pinecone. 
 
-**How to run**
+**How to run ->**
 The main file _imagesearchapp.py_ contains code for Streamlit development and can be run locally when the requirements are installed, followed by running the _offline.py_ file, followed by the notebook, and lastly by passing 
 ```
 streamlit run imagesearchapp.py.
