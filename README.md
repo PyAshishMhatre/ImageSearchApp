@@ -8,11 +8,11 @@ The interface additionally allows a user who does not have an image to make a cu
 **The model used for generation of vectors in this code is VGG16**, and the metric for similarity matching is Euclidean, and in Pinecone database, it is cosine similarity. The model for vector generation can be easily replaced with any other image recognition model, such as SqueezeNet, by altering the feature_extractor.py file. The offline.py file is used to generate vectors from existing image inventory and store it locally or on the Github repo. The image-upsert_pinecode notebook is used to set up the Pinecone database and upload vectors to Pinecone. The main file imagesearchapp.py contains code for Streamlit development and can be run locally when the requirements are installed, followed by running the offline.py file, followed by the notebook, and lastly by passing streamlit run imagesearchapp.py.
 
 ## Files
-**feature_extractor.py:** This file contains the implementation of VGG16 for extracting features from the image.
-**offline.py:** This file is used to generate vectors from existing image inventory and store them locally or on the Github repo.
-**image-upsert_pinecode.ipynb:** This notebook is used to set up the Pinecone database and upload vectors to Pinecone.
-**imagesearchapp.py:** This file contains the Streamlit code for the user interface and for searching for similar images.
-**requirements.txt:** This file contains the dependencies required to run the code.
+1. **feature_extractor.py:** This file contains the implementation of VGG16 for extracting features from the image.
+2. **offline.py:** This file is used to generate vectors from existing image inventory and store them locally or on the Github repo.
+3. **image-upsert_pinecode.ipynb:** This notebook is used to set up the Pinecone database and upload vectors to Pinecone.
+4. **imagesearchapp.py:** This file contains the Streamlit code for the user interface and for searching for similar images.
+5. **requirements.txt:** This file contains the dependencies required to run the code.
 
 ## Running the Code
 
